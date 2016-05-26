@@ -57,7 +57,7 @@
     // Defines a GraphQL fetcher using the fetch API.
     var graphQLEndpoint = "<%= graphql_endpoint_path %>";
     function graphQLFetcher(graphQLParams) {
-      return fetch(graphQLEndpoint, {
+      return fetch(graphQLEndpoint || window.location, {
         method: 'post',
         headers: { 'Content-Type': 'application/json',
           <% if GraphiQL::Rails.config.csrf %>

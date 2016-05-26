@@ -20,6 +20,12 @@ module GraphiQL
         assert_match(/application-\w+\.js/, @response.body, "it includes assets")
       end
 
+      test "it throws if graphql_path is not specified" do
+        assert_raises(Exception) do
+          get :show
+        end
+      end
+
       test "it uses initial_query config" do
         get :show, graphql_path: "/my/endpoint"
         assert_includes(@response.body, "Welcome to GraphiQL")
